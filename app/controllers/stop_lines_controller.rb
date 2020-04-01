@@ -1,0 +1,2 @@
+class StopLinesController < ApplicationController
+end

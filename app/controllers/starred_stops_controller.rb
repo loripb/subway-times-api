@@ -1,0 +1,2 @@
+class StarredStopsController < ApplicationController
+end

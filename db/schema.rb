@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_04_01_154152) do
   end
 
   create_table "stops", force: :cascade do |t|
-    t.integer "stop_id"
+    t.string "stop_id"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

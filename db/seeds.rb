@@ -56,4 +56,6 @@ StopLine.create(stop_id: Stop.find_by(stop_id: 705).id, line_id: Line.first.id)
 StopLine.create(stop_id: Stop.find_by(stop_id: 702).id, line_id: Line.first.id)
 StopLine.create(stop_id: Stop.find_by(stop_id: 701).id, line_id: Line.first.id)
 
+User.create(username: "Eric", password: "abc123")
+
 puts "DONE!"

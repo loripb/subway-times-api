@@ -1,3 +1,4 @@
 class LineSerializer < ActiveModel::Serializer
-  attributes :id, :name, :feed_id
+  include FastJsonapi::ObjectSerializer
+  attributes :id, :name
 end

@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
   before_action :authorized, only: [:persist]
 
+  def index
+    @users = User.all
+
+    render json: @users
+  end
+
   def create
     @user = User.create(user_params)
     if @user.valid?
@@ -27,7 +33,7 @@ class UsersController < ApplicationController
       wristband = encode_token(infoToSaveInBox)
       render json: {user: UserSerializer.new(@user), token: wristband}
     else
-      render json: {error: "NICE TRY, INCORRECT USERNAME OR PASSWORD"}
+      render json: {error: "INCORRECT USERNAME OR PASSWORD"}
     end
   end
 

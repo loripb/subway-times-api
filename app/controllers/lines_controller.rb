@@ -8,6 +8,6 @@ class LinesController < ApplicationController
   def show
     @line = Line.find(params[:id])
 
-    render json: {line: @line, feed: @line.line_feed, Stops: @line.stops}
+    render json: {line: @line, Stops: @line.stops, feed: @line.line_feed}
   end
 end

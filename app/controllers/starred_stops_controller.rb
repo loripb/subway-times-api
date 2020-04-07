@@ -1,4 +1,11 @@
 class StarredStopsController < ApplicationController
+
+  def index
+    @starred_stops = StarredStop.all
+
+    render json: @starred_stops
+  end
+
   def create
     @starred_stop = StarredStop.create(params.permit(:user_id, :stop_id))
 

@@ -7,7 +7,7 @@ class StarredStopsController < ApplicationController
   end
 
   def create
-    @starred_stop = StarredStop.create(params.permit(:user_id, :stop_id))
+    @starred_stop = StarredStop.create(params.permit(:user_id, :stop_id, :line_id))
 
     render json: {starred_stop: StarredStopSerializer.new(@starred_stop)}
   end

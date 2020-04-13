@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(version: 2020_04_01_154152) do
   create_table "starred_stops", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "stop_id", null: false
+    t.integer "line_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["line_id"], name: "index_starred_stops_on_line_id"
     t.index ["stop_id"], name: "index_starred_stops_on_stop_id"
     t.index ["user_id"], name: "index_starred_stops_on_user_id"
   end
@@ -51,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_04_01_154152) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "starred_stops", "lines"
   add_foreign_key "starred_stops", "stops"
   add_foreign_key "starred_stops", "users"
   add_foreign_key "stop_lines", "lines"

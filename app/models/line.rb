@@ -4,9 +4,9 @@ require 'net/http'
 require 'uri'
 
 class Line < ApplicationRecord
+  has_many :starred_stops
   has_many :stop_lines
   has_many :stops, through: :stop_lines
-  has_many :starred_stops
 
 
   def line_feed(feed_id)

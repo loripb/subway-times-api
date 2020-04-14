@@ -2,7 +2,7 @@ class LinesController < ApplicationController
   def index
     @lines = Line.all
 
-    render json: LineSerializer.new(@lines).serialized_json
+    render json: @lines
   end
 
   def show

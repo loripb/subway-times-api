@@ -6,6 +6,12 @@ class StarredStopsController < ApplicationController
     render json: @starred_stops
   end
 
+  def show
+    @starred_stop = StarredStop.find(params[:id])
+
+    render json: {stop: @starred_stop, feed: @starred_stop.get_stop_arrival_times}
+  end
+
   def create
     @starred_stop = StarredStop.create(params.permit(:user_id, :stop_id, :line_id))
 

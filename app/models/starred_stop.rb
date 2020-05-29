@@ -8,7 +8,6 @@ class StarredStop < ApplicationRecord
   def get_stop_arrival_times
     stop = Stop.find(self.stop_id).stop_id
     feed = Line.find(self.line_id).line_feed
-    array_of_routes = []
     array_of_stop_hashes = {}
     north = stop + "N"
     south = stop + "S"

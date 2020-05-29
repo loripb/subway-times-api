@@ -9,8 +9,8 @@ class Line < ApplicationRecord
   has_many :stops, through: :stop_lines
 
 
-  def line_feed(feed_id)
-    data = Net::HTTP.get(URI.parse("http://datamine.mta.info/mta_esi.php?key=910d35946935f1167602dcd39bf4a3ec&feed_id=#{feed_id}"))
+  def line_feed
+    data = Net::HTTP.get(URI.parse("http://datamine.mta.info/mta_esi.php?key=910d35946935f1167602dcd39bf4a3ec&feed_id=#{self.feed_id}"))
     @feed = Transit_realtime::FeedMessage.decode(data)
     @feed.entity
   end

@@ -8,7 +8,6 @@ class StarredStop < ApplicationRecord
   def get_stop_arrival_times
     stop = Stop.find(self.stop_id).stop_id
     feed = Line.find(self.line_id).line_feed
-    array_of_routes = []
     array_of_stop_hashes = {}
     north = stop + "N"
     south = stop + "S"
@@ -17,11 +16,9 @@ class StarredStop < ApplicationRecord
       stop_id = element2.stop_id
       if element2[:arrival]
         arrival_time = Time.at(element2[:arrival][:time]).to_datetime
+        arrival_time = "#{arrival_time.hour}:#{arrival_time.min}"
         array_of_stop_hashes[stop_id] ? array_of_stop_hashes[stop_id].push(arrival_time) : array_of_stop_hashes[stop_id] = []
       end
-
-      :
-      nil
       } : nil }
 
       stop_arrivals = {

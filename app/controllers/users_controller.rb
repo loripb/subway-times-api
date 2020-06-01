@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       wristband = encode_token(infoToSaveInBox)
       render json: {user: UserSerializer.new(@user), token: wristband}
     else
-      render json: {error: "INCORRECT USERNAME OR PASSWORD"}
+      render json: {error: ["INCORRECT USERNAME OR PASSWORD"]}
     end
   end
 

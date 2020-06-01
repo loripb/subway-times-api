@@ -15,9 +15,8 @@ class StarredStop < ApplicationRecord
     contains_trip_update = feed.map{|element| element[:trip_update] ? element[:trip_update][:stop_time_update].map{ |element2|
       stop_id = element2.stop_id
       if element2[:arrival]
-        arrival_time = Time.at(element2[:arrival][:time]).to_datetime
-        arrival_time = "#{arrival_time.hour}:#{arrival_time.min}"
-        array_of_stop_hashes[stop_id] ? array_of_stop_hashes[stop_id].push(arrival_time) : array_of_stop_hashes[stop_id] = []
+        arrival = element2[:arrival]
+        array_of_stop_hashes[stop_id] ? array_of_stop_hashes[stop_id].push(arrival) : array_of_stop_hashes[stop_id] = []
       end
       } : nil }
 
